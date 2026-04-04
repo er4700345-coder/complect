@@ -1,105 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Libre+Franklin:ital,wght@0,300;0,400;0,500;1,300&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+:root {
+  --bg: #ffffff;
+  --bg2: #f7f5f2;
+  --bg3: #f0ede8;
+  --rule: #e4e0da;
+  --rule2: #ccc8c0;
+  --ink: #1a1916;
+  --ink2: #3d3a34;
+  --ink3: #6b6760;
+  --ink4: #9b9790;
+  --green: #16a34a;
+  --green-bg: #f0fdf4;
+  --green-rule: #bbf7d0;
+  --red: #dc2626;
+  --red-bg: #fef2f2;
+  --amber: #92400e;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.10);
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+.dark {
+  --bg: #111110;
+  --bg2: #181716;
+  --bg3: #1f1e1c;
+  --rule: #282622;
+  --rule2: #333128;
+  --ink: #f0ede6;
+  --ink2: #c8c4bc;
+  --ink3: #7a7770;
+  --ink4: #4a4844;
+  --green: #4ade80;
+  --green-bg: rgba(74,222,128,0.08);
+  --green-rule: rgba(74,222,128,0.2);
+  --red: #f87171;
+  --red-bg: rgba(248,113,113,0.08);
+  --shadow: 0 1px 3px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-lg: 0 24px 64px rgba(0,0,0,0.5);
 }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 300;
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rule2); border-radius: 3px; }
+
+/* ─── UTILITIES ─── */
+.font-syne { font-family: 'Syne', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ─── REVEAL ANIMATION ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ─── FORM INPUTS (shared) ─── */
+.field-input, .field-select, .field-textarea {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--rule2);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'Libre Franklin', sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s, background 0.25s;
+  -webkit-appearance: none;
+}
+.field-input:focus, .field-select:focus, .field-textarea:focus {
+  border-color: var(--ink);
+  background: var(--bg);
+}
+.field-input::placeholder, .field-textarea::placeholder { color: var(--ink4); }
+.field-input.error, .field-select.error { border-color: var(--red); }
+
+.field-label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 6px;
+}
+
+/* ─── STATUS BADGES ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+  font-weight: 500;
+}
+.badge-new { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-rule); }
+.badge-reviewing { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.dark .badge-reviewing { background: rgba(29,78,216,0.1); color: #93c5fd; border-color: rgba(147,197,253,0.2); }
+.badge-qualified { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.dark .badge-qualified { background: rgba(146,64,14,0.1); color: #fbbf24; border-color: rgba(251,191,36,0.2); }
+.badge-converted { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-rule); }
+.badge-rejected { background: var(--red-bg); color: var(--red); border: 1px solid rgba(220,38,38,0.2); }
+.badge-archived { background: var(--bg3); color: var(--ink4); border: 1px solid var(--rule); }
+.badge-demo_scheduled { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+.dark .badge-demo_scheduled { background: rgba(109,40,217,0.1); color: #a78bfa; border-color: rgba(167,139,250,0.2); }
+
+/* Plan badges */
+.badge-free { background: var(--bg3); color: var(--ink4); border: 1px solid var(--rule); }
+.badge-pilot { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.badge-growth { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-rule); }
+.badge-enterprise { background: #faf5ff; color: #6d28d9; border: 1px solid #e9d5ff; }
