@@ -57,7 +57,7 @@ export default function LandingPage() {
 
       {/* ── HERO ── */}
       <section className="pt-14 border-b border-[var(--rule)]">
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]" style={{minHeight:'calc(100vh - 56px)'}}>
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-[1120px] mx-auto border-l border-r border-[var(--rule)] md:min-h-[calc(100vh-56px)]">
           <div className="px-5 sm:px-8 md:px-10 py-12 md:py-20 border-b md:border-b-0 md:border-r border-[var(--rule)] flex flex-col justify-center">
             <div className="reveal flex items-center gap-3 mb-6">
               <div className="w-5 h-px bg-[var(--rule2)]" />
