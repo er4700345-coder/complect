@@ -30,7 +30,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[var(--bg)]">
       {/* ── NAV ── */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'border-b border-[var(--rule)]' : ''} bg-[var(--bg)]/90 backdrop-blur-md`}>
-        <nav className="max-w-[1120px] mx-auto px-10 h-14 flex items-center justify-between gap-6">
+        <nav className="max-w-[1120px] mx-auto px-4 sm:px-6 md:px-10 h-14 flex items-center justify-between gap-3 sm:gap-6">
           <div className="flex items-center gap-2.5 flex-shrink-0">
             <span className="font-syne font-bold text-[17px] tracking-tight text-[var(--ink)]">Complect</span>
             <span className="font-mono text-[9px] tracking-widest text-[var(--green)] bg-[var(--green-bg)] border border-[var(--green-rule)] px-1.5 py-0.5 rounded-[2px] uppercase">Beta</span>
@@ -49,7 +49,7 @@ export default function LandingPage() {
                 {theme === 'dark' ? '☾' : '☀'}
               </div>
             </button>
-            <Link to="/login" className="text-[13px] text-[var(--ink3)] border border-[var(--rule2)] px-3 py-2 rounded hover:bg-[var(--bg2)] hover:text-[var(--ink)] transition-colors font-syne font-medium bg-[var(--bg)]">Sign in</Link>
+            <Link to="/login" className="hidden sm:inline-flex text-[13px] text-[var(--ink3)] border border-[var(--rule2)] px-3 py-2 rounded hover:bg-[var(--bg2)] hover:text-[var(--ink)] transition-colors font-syne font-medium bg-[var(--bg)]">Sign in</Link>
             <button onClick={() => setModal('demo')} className="text-[13px] bg-[var(--ink)] text-[var(--bg)] border border-[var(--ink)] px-3 py-2 rounded hover:opacity-80 transition-opacity font-syne font-medium">Book demo</button>
           </div>
         </nav>
@@ -57,8 +57,8 @@ export default function LandingPage() {
 
       {/* ── HERO ── */}
       <section className="pt-14 border-b border-[var(--rule)]">
-        <div className="grid grid-cols-1 md:grid-cols-2 max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]" style={{minHeight:'calc(100vh - 56px)'}}>
-          <div className="px-10 py-20 border-r border-[var(--rule)] flex flex-col justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-[1120px] mx-auto border-l border-r border-[var(--rule)] md:min-h-[calc(100vh-56px)]">
+          <div className="px-5 sm:px-8 md:px-10 py-12 md:py-20 border-b md:border-b-0 md:border-r border-[var(--rule)] flex flex-col justify-center">
             <div className="reveal flex items-center gap-3 mb-6">
               <div className="w-5 h-px bg-[var(--rule2)]" />
               <span className="font-mono text-[11px] tracking-widest text-[var(--ink4)] uppercase">Security Questionnaire Intelligence</span>
@@ -69,9 +69,9 @@ export default function LandingPage() {
             <p className="reveal text-[15px] text-[var(--ink3)] leading-relaxed font-light max-w-[440px] mb-10">
               Complect drafts accurate, evidence-backed answers to SOC 2, GDPR, and vendor security questionnaires using your own documentation — in minutes, not weeks.
             </p>
-            <div className="reveal flex items-center gap-3 mb-14">
-              <button onClick={() => setModal('demo')} className="font-syne font-medium text-[15px] bg-[var(--ink)] text-[var(--bg)] px-6 py-3 rounded hover:opacity-80 transition-opacity">Book a demo</button>
-              <button onClick={() => setModal('pilot')} className="font-syne font-medium text-[15px] border border-[var(--rule2)] text-[var(--ink2)] px-6 py-3 rounded hover:bg-[var(--bg2)] hover:border-[var(--ink3)] transition-all">Request pilot →</button>
+            <div className="reveal flex flex-col sm:flex-row sm:items-center gap-3 mb-10 md:mb-14">
+              <button onClick={() => setModal('demo')} className="font-syne font-medium text-[15px] bg-[var(--ink)] text-[var(--bg)] px-6 py-3 rounded-lg hover:opacity-80 transition-opacity min-h-[48px] w-full sm:w-auto">Book a demo</button>
+              <button onClick={() => setModal('pilot')} className="font-syne font-medium text-[15px] border border-[var(--rule2)] text-[var(--ink2)] px-6 py-3 rounded-lg hover:bg-[var(--bg2)] hover:border-[var(--ink3)] transition-all min-h-[48px] w-full sm:w-auto">Request pilot →</button>
             </div>
             <div className="reveal grid grid-cols-3 border-t border-[var(--rule)] pt-8 gap-0">
               {[['80%','of questions answered automatically'],['3wk → 4hr','average turnaround reduction'],['$40k','saved vs. consulting fees']].map(([n,l]) => (
@@ -110,7 +110,7 @@ export default function LandingPage() {
       {/* ── PROBLEM ── */}
       <section id="problem" className="border-b border-[var(--rule)]">
         <div className="max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]">
-          <div className="grid grid-cols-[220px_1fr] gap-16 px-10 py-16 border-b border-[var(--rule)]">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 px-5 sm:px-8 md:px-10 py-10 md:py-16 border-b border-[var(--rule)]">
             <div className="reveal font-mono text-[11px] tracking-widest text-[var(--ink4)] uppercase pt-1">The problem</div>
             <div className="reveal">
               <h2 className="font-syne font-bold tracking-tight text-[var(--ink)] mb-4" style={{fontSize:'clamp(28px,3.5vw,44px)',lineHeight:1.08}}>
@@ -125,7 +125,7 @@ export default function LandingPage() {
               ['02/03','$40k','Average SOC 2 readiness consulting cost','Compliance firms charge $15,000–$60,000 to prepare for a single audit. That budget disappears before your first paying enterprise customer.'],
               ['03/03','68%','Enterprise deals delayed by security review','Security assessment is the #1 enterprise procurement bottleneck. Incomplete answers stall pipelines for months — or kill deals entirely.'],
             ].map(([idx,num,title,desc]) => (
-              <div key={idx} className="reveal px-10 py-10 border-r border-[var(--rule)] last:border-r-0 hover:bg-[var(--bg2)] transition-colors">
+              <div key={idx} className="reveal px-5 sm:px-8 md:px-10 py-8 md:py-10 border-b md:border-b-0 md:border-r border-[var(--rule)] last:border-r-0 last:border-b-0 hover:bg-[var(--bg2)] transition-colors">
                 <div className="font-mono text-[10px] text-[var(--ink4)] mb-8">{idx}</div>
                 <div className="font-syne font-extrabold text-[var(--ink)] mb-2" style={{fontSize:'52px',letterSpacing:'-0.04em',lineHeight:1}}>{num}</div>
                 <div className="font-syne font-semibold text-[14px] text-[var(--ink)] mb-3">{title}</div>
@@ -139,7 +139,7 @@ export default function LandingPage() {
       {/* ── HOW IT WORKS ── */}
       <section id="how" className="border-b border-[var(--rule)]">
         <div className="max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]">
-          <div className="grid grid-cols-[220px_1fr] gap-16 px-10 py-16 border-b border-[var(--rule)]">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 px-5 sm:px-8 md:px-10 py-10 md:py-16 border-b border-[var(--rule)]">
             <div className="reveal font-mono text-[11px] tracking-widest text-[var(--ink4)] uppercase pt-1">How it works</div>
             <div className="reveal">
               <h2 className="font-syne font-bold tracking-tight text-[var(--ink)] mb-3" style={{fontSize:'clamp(28px,3.5vw,44px)',lineHeight:1.08}}>
@@ -150,7 +150,7 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3">
             {HOW_STEPS.map(({ step, title, desc, detail }) => (
-              <div key={step} className="reveal px-10 py-10 border-r border-[var(--rule)] last:border-r-0">
+              <div key={step} className="reveal px-5 sm:px-8 md:px-10 py-8 md:py-10 border-b md:border-b-0 md:border-r border-[var(--rule)] last:border-r-0 last:border-b-0">
                 <div className="font-mono text-[10px] text-[var(--ink4)] mb-6">{step}</div>
                 <div className="font-syne font-bold text-[20px] tracking-tight text-[var(--ink)] mb-2">{title}</div>
                 <p className="text-[13px] text-[var(--ink3)] font-light leading-relaxed mb-4">{desc}</p>
@@ -166,7 +166,7 @@ export default function LandingPage() {
       {/* ── LIVE DEMO ── */}
       <section className="border-b border-[var(--rule)]">
         <div className="max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]">
-          <div className="grid grid-cols-[220px_1fr] gap-16 px-10 py-16 border-b border-[var(--rule)]">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 px-5 sm:px-8 md:px-10 py-10 md:py-16 border-b border-[var(--rule)]">
             <div className="reveal font-mono text-[11px] tracking-widest text-[var(--ink4)] uppercase pt-1">Live output</div>
             <div className="reveal">
               <h2 className="font-syne font-bold tracking-tight text-[var(--ink)] mb-3" style={{fontSize:'clamp(28px,3.5vw,44px)',lineHeight:1.08}}>
@@ -208,7 +208,7 @@ export default function LandingPage() {
       {/* ── PRICING ── */}
       <section id="pricing" className="border-b border-[var(--rule)]">
         <div className="max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]">
-          <div className="grid grid-cols-[220px_1fr] gap-16 px-10 py-16 border-b border-[var(--rule)]">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 px-5 sm:px-8 md:px-10 py-10 md:py-16 border-b border-[var(--rule)]">
             <div className="reveal font-mono text-[11px] tracking-widest text-[var(--ink4)] uppercase pt-1">Pricing</div>
             <div className="reveal">
               <h2 className="font-syne font-bold tracking-tight text-[var(--ink)] mb-3" style={{fontSize:'clamp(28px,3.5vw,44px)',lineHeight:1.08}}>
@@ -219,7 +219,7 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3">
             {PRICING_PLANS.map(({ key, tier, name, desc, price, note, features, cta, ctaVariant }, i) => (
-              <div key={key} className={`reveal px-10 py-10 border-r border-[var(--rule)] last:border-r-0 ${i===1?'bg-[var(--bg2)]':''}`}>
+              <div key={key} className={`reveal px-5 sm:px-8 md:px-10 py-8 md:py-10 border-b md:border-b-0 md:border-r border-[var(--rule)] last:border-r-0 last:border-b-0 ${i===1?'bg-[var(--bg2)]':''}`}>
                 <div className="font-mono text-[10px] tracking-widest text-[var(--ink4)] uppercase mb-5">{tier}</div>
                 <div className="font-syne font-bold text-[20px] tracking-tight text-[var(--ink)] mb-1">{name}</div>
                 <div className="text-[13px] text-[var(--ink4)] font-light mb-6">{desc}</div>
@@ -250,7 +250,7 @@ export default function LandingPage() {
       {/* ── TESTIMONIALS ── */}
       <section id="customers" className="border-b border-[var(--rule)]">
         <div className="max-w-[1120px] mx-auto border-l border-r border-[var(--rule)]">
-          <div className="grid grid-cols-[220px_1fr] gap-16 px-10 py-16 border-b border-[var(--rule)]">
+          <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 px-5 sm:px-8 md:px-10 py-10 md:py-16 border-b border-[var(--rule)]">
             <div className="reveal font-mono text-[11px] tracking-widest text-[var(--ink4)] uppercase pt-1">Early design partners</div>
             <div className="reveal">
               <h2 className="font-syne font-bold tracking-tight text-[var(--ink)]" style={{fontSize:'clamp(28px,3.5vw,44px)',lineHeight:1.08}}>
@@ -260,7 +260,7 @@ export default function LandingPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3">
             {TESTIMONIALS.map(({ initials, quote, name, role }) => (
-              <div key={name} className="reveal px-10 py-10 border-r border-[var(--rule)] last:border-r-0 hover:bg-[var(--bg2)] transition-colors">
+              <div key={name} className="reveal px-5 sm:px-8 md:px-10 py-8 md:py-10 border-b md:border-b-0 md:border-r border-[var(--rule)] last:border-r-0 last:border-b-0 hover:bg-[var(--bg2)] transition-colors">
                 <p className="text-[14px] text-[var(--ink2)] leading-relaxed font-light mb-6" dangerouslySetInnerHTML={{ __html: quote }} />
                 <div className="h-px bg-[var(--rule)] mb-5" />
                 <div className="flex items-center gap-3">
@@ -279,7 +279,7 @@ export default function LandingPage() {
       {/* ── CTA BAND ── */}
       <section className="border-b border-[var(--rule)] bg-[var(--bg2)]">
         <div className="max-w-[1120px] mx-auto border-l border-r border-[var(--rule)] grid grid-cols-1 md:grid-cols-2">
-          <div className="px-10 py-16 border-r border-[var(--rule)]">
+          <div className="px-5 sm:px-8 md:px-10 py-10 md:py-16 border-b md:border-b-0 md:border-r border-[var(--rule)]">
             <h2 className="reveal font-syne font-bold tracking-tight text-[var(--ink)] mb-4" style={{fontSize:'clamp(30px,3.5vw,48px)',lineHeight:1.06}}>Stop letting security review stall your pipeline</h2>
             <p className="reveal text-[15px] text-[var(--ink3)] leading-relaxed font-light mb-6 max-w-[460px]">Private beta. If you have an enterprise deal currently in security review, you're exactly who we built this for.</p>
             <div className="reveal border border-[var(--rule)] rounded p-5 bg-[var(--bg)]">
@@ -287,7 +287,7 @@ export default function LandingPage() {
               <span className="text-[13px] text-[var(--ink3)] font-light">We're not asking you to subscribe today. Book a 30-minute call, show us your questionnaire situation, and we'll agree on a pilot. Most teams are live within a week.</span>
             </div>
           </div>
-          <div className="px-10 py-16">
+          <div className="px-5 sm:px-8 md:px-10 py-10 md:py-16">
             <InlineRequestForm onSuccess={() => toast.success('Request received — we\'ll follow up within 24 hours.')} />
           </div>
         </div>
@@ -295,7 +295,7 @@ export default function LandingPage() {
 
       {/* ── FOOTER ── */}
       <footer className="border-t border-[var(--rule)] bg-[var(--bg)]">
-        <div className="max-w-[1120px] mx-auto px-10 py-7 border-l border-r border-[var(--rule)] flex items-center justify-between">
+        <div className="max-w-[1120px] mx-auto px-5 sm:px-8 md:px-10 py-7 border-l border-r border-[var(--rule)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-6">
             <span className="font-syne font-bold text-[15px] tracking-tight text-[var(--ink)]">Complect</span>
             <span className="font-mono text-[11px] text-[var(--ink4)]">© 2026 COMPLECT INC.</span>
